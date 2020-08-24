@@ -1,14 +1,12 @@
 import React from "react";
 import "./index.css";
-import NumArr from "./NumArray"
-
-const todoList = [];
+import Item from "./Item";
 
 class AddContent extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      todos: todoList,
+      todos: [],
       currentItem: {
         task: "",
         id: "",
@@ -32,21 +30,22 @@ class AddContent extends React.Component {
     const newItem = this.state.currentItem;
 
     if (newItem.task !== "") {
-      const newTodos = [...todoList, newItem];
-      console.log(newTodos);
-
-
-      this.state = {
-        todos: newTodos,
+      const newTodo = [...this.state.todos, newItem];
+      console.log(newTodo);
+      this.setState({
+        todos: newTodo,
         currentItem: {
           task: "",
           id: "",
         },
-      };
+      });
+      console.log(this.state.Todos);
     }
   }
 
   render() {
+    const arr = this.state.todos.map((n) => <Item key={n.id} num={n} />);
+
     return (
       <div className="card">
         <input
@@ -63,6 +62,8 @@ class AddContent extends React.Component {
           className="buttonAdd"
           onClick={this.addItem}
         />
+
+        <div>{arr}</div>
       </div>
     );
   }
