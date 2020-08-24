@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import NumArr from "./NumArray"
 
 const todoList = [];
 

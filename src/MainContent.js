@@ -1,12 +1,12 @@
 import React from "react";
 import Item from "./Item.js";
-import Num from "./NumArray.js";
+import NumArray from "./NumArray.js";
 
 class MainContent extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: Num,
+      todos: NumArray,
     };
     this.makeChange = this.makeChange.bind(this);
   }

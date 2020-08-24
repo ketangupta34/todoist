@@ -1,4 +1,6 @@
-const Num = [
+import React from 'react'
+import AddContent from "./AddContent"
+const NumArray = [
   {
     id: 1,
     task: "task 1",
@@ -16,4 +18,4 @@ const Num = [
     task: "task 4",
   },
 ];
-export default Num;
+export default NumArray;
