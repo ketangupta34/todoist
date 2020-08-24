@@ -1,0 +1,34 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #313131;
+}
+
+.card {
+	background-color: whitesmoke;
+	font-size: medium;
+  color: #ec625f;
+  padding: 20px 30px;
+  margin: 10px auto;
+  width: 40%;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.buttonAdd {
+  background-color: #ec625f;
+  color: white;
+  font-size: medium;
+  border: none;
+  margin-top: 10px;
+  padding: 7px;
+  width: 100%;
+}
+
+.buttonInp {
+	font-size: medium;
+  padding: 7px;
+  box-sizing: border-box;
+  width: 100%;
+}
