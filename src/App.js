@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import MainContent from "./MainContent";
 import AddContent from "./AddContent";
 
 function App() {
