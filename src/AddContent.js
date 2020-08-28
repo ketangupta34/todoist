@@ -13,6 +13,7 @@ class AddContent extends React.Component {
       },
     };
     this.handleInput = this.handleInput.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.addItem = this.addItem.bind(this);
   }
 
@@ -43,8 +44,18 @@ class AddContent extends React.Component {
     }
   }
 
+  handleDelete(key) {
+    const items = this.state.todos.filter((item) => item.id !== key);
+    this.setState({
+      todos: items,
+    });
+    console.log("handle delete called key = ", key);
+  }
+
   render() {
-    const arr = this.state.todos.map((n) => <Item key={n.id} num={n} />);
+    const arr = this.state.todos.map((n) => (
+      <Item key={n.id} num={n} handleDelete={this.handleDelete} />
+    ));
 
     return (
       <div className="card">
@@ -52,6 +63,7 @@ class AddContent extends React.Component {
           type="text"
           name="name"
           placeholder="Add task"
+          value={this.state.currentItem.task}
           className="buttonInp"
           onChange={this.handleInput}
         />
