@@ -13,8 +13,8 @@ function Item(props) {
         borderBottom: "1px solid black",
       }}
     >
-      <p style={{ marginLeft: "20px" }}>
-        {props.num.id}. {props.num.task}
+      <p style={{ marginLeft: "20px", fontSize:"large" }}>
+        {props.i}. {props.num.task}
       </p>
       <FontAwesomeIcon
         style={{ marginLeft: "auto", paddingRight: "40px", fontSize: "30px" }}

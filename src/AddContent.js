@@ -56,14 +56,14 @@ class AddContent extends React.Component {
   }
 
   render() {
-    const arr = this.state.todos.map((n) => (
-      <Item key={n.id} num={n} handleDelete={this.handleDelete} />
+    const arr = this.state.todos.map((n, index) => (
+      <Item key={n.id} i={index+1} num={n} handleDelete={this.handleDelete} />
     ));
 
     let todoList;
     if (this.state.todos.length !== 0) {
       todoList = (
-        <div className="card" style={{overflow:"scroll", height: "400px" }}>
+        <div className="card" style={{ overflow: "scroll", height: "400px" }}>
           {arr}
         </div>
       );
@@ -92,21 +92,22 @@ class AddContent extends React.Component {
         {todoList}
 
         <div className="card">
-          <input
-            type="text"
-            name="name"
-            placeholder="Add task"
-            value={this.state.currentItem.task}
-            className="buttonInp"
-            onChange={this.handleInput}
-          />
+          <form onSubmit={this.addItem}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Add task"
+              value={this.state.currentItem.task}
+              className="buttonInp"
+              onChange={this.handleInput}
+            />
 
-          <input
-            type="submit"
-            value="Add item"
-            className="buttonAdd"
-            onClick={this.addItem}
-          />
+            <input
+              type="submit"
+              value="Add item"
+              className="buttonAdd"
+            />
+          </form>
         </div>
       </div>
     );
