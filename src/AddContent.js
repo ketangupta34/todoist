@@ -2,9 +2,12 @@ import React from "react";
 import "./index.css";
 import Item from "./Item";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTasks } from "@fortawesome/free-solid-svg-icons";
+
 class AddContent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       todos: [],
       currentItem: {
@@ -57,25 +60,54 @@ class AddContent extends React.Component {
       <Item key={n.id} num={n} handleDelete={this.handleDelete} />
     ));
 
+    let todoList;
+    if (this.state.todos.length !== 0) {
+      todoList = (
+        <div className="card" style={{overflow:"scroll", height: "400px" }}>
+          {arr}
+        </div>
+      );
+    } else {
+      todoList = (
+        <div
+          className="card"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "400px",
+          }}
+        >
+          <FontAwesomeIcon
+            style={{ margin: "auto", fontSize: "70px" }}
+            icon={faTasks}
+          />
+        </div>
+      );
+    }
+
     return (
-      <div className="card">
-        <input
-          type="text"
-          name="name"
-          placeholder="Add task"
-          value={this.state.currentItem.task}
-          className="buttonInp"
-          onChange={this.handleInput}
-        />
+      <div>
+        {todoList}
 
-        <input
-          type="submit"
-          value="Add item"
-          className="buttonAdd"
-          onClick={this.addItem}
-        />
+        <div className="card">
+          <input
+            type="text"
+            name="name"
+            placeholder="Add task"
+            value={this.state.currentItem.task}
+            className="buttonInp"
+            onChange={this.handleInput}
+          />
 
-        <div>{arr}</div>
+          <input
+            type="submit"
+            value="Add item"
+            className="buttonAdd"
+            onClick={this.addItem}
+          />
+        </div>
       </div>
     );
   }

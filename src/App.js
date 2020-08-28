@@ -5,11 +5,15 @@ import AddContent from "./AddContent";
 function App() {
   return (
     <div>
-      <div>
-        <h1 style={{
+      <div >
+        <h1
+          style={{
             textAlign: "center",
             color: "#ec625f",
-          }}>LETS DO THIS!</h1>
+          }}
+        >
+          LETS DO THIS!
+        </h1>
       </div>
 
       <AddContent />
